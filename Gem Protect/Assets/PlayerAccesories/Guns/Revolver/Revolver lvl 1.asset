@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8955c7ef5f38b7041b48cd1ff7da7e54, type: 3}
+  m_Name: Revolver lvl 1
+  m_EditorClassIdentifier: 
+  Name: Revolver
+  itemType: 0
+  slotPrefab: {fileID: 6867391220200030839, guid: b347612ccb51e744196f60679a65f56a, type: 3}
+  spawnProbability: 0.1
+  cost: 0
+  gunLevel: 1
+  itemSprite: {fileID: -305899777, guid: 6f8c90faa0cdb46409b3c5a088ecab8b, type: 3}
+  gunPrefab: {fileID: 1546708635856110551, guid: 861288793058d9f49997344a00868645, type: 3}
+  damage: 80
+  shootingIntervel: 0.7
+  specialItemDescription: 
