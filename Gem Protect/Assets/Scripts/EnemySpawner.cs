@@ -20,15 +20,27 @@ public class Wave
 }
 
 [System.Serializable]
+public class Phase
+{
+    public string phaseName;
+    public List<Wave> waves = new List<Wave>();
+}
+
+[System.Serializable]
 public class WaveParent
 {
-    public List<Wave> waves = new List<Wave>();
+    public List<Phase> phases = new List<Phase>();
 
     public WaveParent()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++) // Example: 2 Phases
         {
-            waves.Add(new Wave());
+            Phase phase = new Phase { phaseName = "Phase " + (i + 1) };
+            for (int j = 0; j < 5; j++) // Example: 5 Waves per Phase
+            {
+                phase.waves.Add(new Wave());
+            }
+            phases.Add(phase);
         }
     }
 }
@@ -43,6 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float timer = 0.0f;
     private float waveTimer = 0.0f;
+    private int currentPhaseIndex = 0;
     private int currentWaveIndex = 0;
     private int currentCoins;
     public bool isWaveActive = false;
@@ -53,14 +66,16 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Shop;
     public GameObject nextWaveButton;
 
+
+    bool gameStarted= false;
     void Start()
     {
         gem = GameObject.Find("Gem");
 
-        if (waveParent.waves.Count > 0)
+        if (waveParent.phases.Count > 0 && waveParent.phases[0].waves.Count > 0)
         {
-            currentCoins = waveParent.waves[currentWaveIndex].coins;
-            waveText.text = "Wave: " + (currentWaveIndex + 1);
+            currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
+            waveText.text =  " Wave: " + (currentWaveIndex + 1);
         }
     }
 
@@ -71,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
             nextWaveButton.SetActive(false);
             timer += Time.deltaTime;
 
-            if (timer >= waveParent.waves[currentWaveIndex].spawnInterval && currentCoins > 0)
+            if (timer >= waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].spawnInterval && currentCoins > 0)
             {
                 SpawnEnemy();
                 timer = 0.0f;
@@ -85,14 +100,22 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
+            // Ensure the gem restores health when the wave is inactive
+            GemHealth gemHealth = gem.GetComponent<GemHealth>();
+            if (gemHealth.currentHealth != gemHealth.maxHealth)
+            {
+                gemHealth.currentHealth = gemHealth.maxHealth;
+            }
+
             waveTimer += Time.deltaTime;
 
-            if (waveTimer >= waveInterval && currentWaveIndex < waveParent.waves.Count - 1 && AllEnemiesDead())
+            if (waveTimer >= waveInterval && currentWaveIndex < waveParent.phases[currentPhaseIndex].waves.Count - 1 && AllEnemiesDead() && gameStarted)
             {
                 nextWaveButton.SetActive(true);
             }
         }
     }
+
 
     void SpawnEnemy()
     {
@@ -132,7 +155,7 @@ public class EnemySpawner : MonoBehaviour
 
     EnemyType SelectEnemyType()
     {
-        List<EnemyType> currentWaveEnemies = waveParent.waves[currentWaveIndex].enemyTypes;
+        List<EnemyType> currentWaveEnemies = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].enemyTypes;
         
         if (currentWaveEnemies == null || currentWaveEnemies.Count == 0) return null;
 
@@ -160,9 +183,20 @@ public class EnemySpawner : MonoBehaviour
     public void LoadNextWave()
     {
         currentWaveIndex++;
-        currentCoins = waveParent.waves[currentWaveIndex].coins;
+        if (currentWaveIndex >= waveParent.phases[currentPhaseIndex].waves.Count)
+        {
+            currentWaveIndex = 0;
+            currentPhaseIndex++;
+        }
+        
+        currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
         isWaveActive = true;
-        waveText.text = "Wave: " + (currentWaveIndex + 1);
+        waveText.text = " Wave: " + (currentWaveIndex + 1);
+    }
+
+    public void GameStart()
+    {
+        gameStarted = true;
     }
 
     bool AllEnemiesDead()

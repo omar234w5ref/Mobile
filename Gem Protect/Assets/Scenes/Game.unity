@@ -326,7 +326,6 @@ MonoBehaviour:
   - {fileID: 1826053616}
   - {fileID: 1479999750}
   - {fileID: 90712704}
-  - {fileID: 1792956860}
   - {fileID: 216387089}
 --- !u!1 &49314655
 GameObject:
@@ -1224,224 +1223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344798171}
   m_CullTransparentMesh: 1
---- !u!1 &347181971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 347181976}
-  - component: {fileID: 347181975}
-  - component: {fileID: 347181974}
-  - component: {fileID: 347181973}
-  - component: {fileID: 347181972}
-  - component: {fileID: 347181977}
-  - component: {fileID: 347181978}
-  m_Layer: 0
-  m_Name: RunnerEnemy
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &347181972
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 1.5333333}
-    newSize: {x: 0.12, y: 0.23}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.5333333}
-  m_EdgeRadius: 0
---- !u!114 &347181973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1031c93358a800418c3bdbe10ebc4ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CoinsPrefab: {fileID: 7318549857657408597, guid: 11cd456f7aad6b6419194c6328a02530, type: 3}
-  DeathPartickle: {fileID: 632867149}
-  hitPartickle: {fileID: 1539631933223290393, guid: 02ab86ce0b7b9c8429cdede3d364399c, type: 3}
-  enemyType: 0
-  maxHealth: 150
-  scoreGive: 10
-  currentHealth: 0
-  powerUps:
-  - {fileID: 0}
-  powerUpSpawnProbabelity: 0
---- !u!114 &347181974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da94bf21c015e5040a6cb61bcb8a7a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  CoinsPrefab: {fileID: 0}
---- !u!212 &347181975
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1018143410, guid: 6eae386455bf49c4bbe3315105128b4a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.12, y: 0.23}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &347181976
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.26, y: 5.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &347181977
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cc9fc1f4c22ee9b48be149a5c12c037d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!50 &347181978
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347181971}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &363981180
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,11 +6766,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5890c0a836da0bd4e966204d829803eb, type: 3}
---- !u!198 &632867149 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2959517300220103211, guid: 5890c0a836da0bd4e966204d829803eb, type: 3}
-  m_PrefabInstance: {fileID: 632867148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642384763
 GameObject:
   m_ObjectHideFlags: 0
@@ -10447,6 +10223,18 @@ MonoBehaviour:
           m_StringArgument: Next Wave
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1792956863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10747,38 +10535,235 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2920e8e3881ecbb418d5e970192c54b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTypes:
-  - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
-    cost: 1
-    spawnProbability: 1
-  - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
-    cost: 2
-    spawnProbability: 0.5
-  - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
-    cost: 5
-    spawnProbability: 0.2
-  - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
-    cost: 2
-    spawnProbability: 0.4
-  waves:
-  - coins: 2
-    enemySpeed: 2
-    spawnInterval: 1
-  - coins: 8
-    enemySpeed: 3
-    spawnInterval: 1.5
-  - coins: 15
-    enemySpeed: 3
-    spawnInterval: 1.5
-  - coins: 20
-    enemySpeed: 4
-    spawnInterval: 1
-  - coins: 35
-    enemySpeed: 5
-    spawnInterval: 1
-  - coins: 40
-    enemySpeed: 7
-    spawnInterval: 1
+  waveParent:
+    phases:
+    - phaseName: Phase 1
+      waves:
+      - coins: 5
+        enemySpeed: 1
+        spawnInterval: 1
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+      - coins: 8
+        enemySpeed: 1
+        spawnInterval: 1
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+      - coins: 15
+        enemySpeed: 1
+        spawnInterval: 0.5
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+      - coins: 20
+        enemySpeed: 1
+        spawnInterval: 0.5
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+      - coins: 25
+        enemySpeed: 1
+        spawnInterval: 0.5
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+      - coins: 35
+        enemySpeed: 1
+        spawnInterval: 0.5
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+      - coins: 40
+        enemySpeed: 1
+        spawnInterval: 0.5
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+      - coins: 60
+        enemySpeed: 1
+        spawnInterval: 0.3
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+      - coins: 80
+        enemySpeed: 1
+        spawnInterval: 0.3
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+      - coins: 90
+        enemySpeed: 1
+        spawnInterval: 0.3
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+      - coins: 100
+        enemySpeed: 1
+        spawnInterval: 0.3
+        enemyTypes:
+        - enemyPrefab: {fileID: 2714053164364269075, guid: 67e8ec525e5f86c4b83c849260c5fb42, type: 3}
+          cost: 2
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 5295260312802310855, guid: d210a5e2954ee7f4cb2f81d48a0b78f2, type: 3}
+          cost: 1
+          spawnProbability: 0.5
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 3705508838680398783, guid: 9a181d9015004e14caf0a34c90ef4f16, type: 3}
+          cost: 2
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 6253956048952873432, guid: e3b312c204fd80342b7a50a8df52c53b, type: 3}
+          cost: 5
+          spawnProbability: 1
+        - enemyPrefab: {fileID: 5729037279378399275, guid: ff4d68bf9b0b5a64ea603d1cfa1dc0e9, type: 3}
+          cost: 8
+          spawnProbability: 1
+    - phaseName: Phase 2
+      waves:
+      - coins: 0
+        enemySpeed: 0
+        spawnInterval: 0
+        enemyTypes: []
+      - coins: 0
+        enemySpeed: 0
+        spawnInterval: 0
+        enemyTypes: []
+      - coins: 0
+        enemySpeed: 0
+        spawnInterval: 0
+        enemyTypes: []
+      - coins: 0
+        enemySpeed: 0
+        spawnInterval: 0
+        enemyTypes: []
+      - coins: 0
+        enemySpeed: 0
+        spawnInterval: 0
+        enemyTypes: []
   waveInterval: 0
   spawnPoints:
   - {fileID: 1012253577}
@@ -10800,8 +10785,6 @@ MonoBehaviour:
   waveText: {fileID: 90712706}
   minDistanceFromGem: 5
   isWaveActive: 0
-  firstGunBught: 0
-  shopOpenable: 0
   Shop: {fileID: 396137720}
   nextWaveButton: {fileID: 1792956860}
 --- !u!1 &1838924838
@@ -12315,9 +12298,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1792956860}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1829984609}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: FirstGunIsBought
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12325,7 +12320,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &3563400915356578166
 MonoBehaviour:
@@ -12395,9 +12390,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1792956860}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1829984609}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: FirstGunIsBought
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12405,7 +12412,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &3563400915707462072
 MonoBehaviour:
@@ -12475,9 +12482,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1792956860}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1829984609}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: FirstGunIsBought
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12485,7 +12504,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!224 &3642321750676329735
 RectTransform:
@@ -13438,4 +13457,3 @@ SceneRoots:
   - {fileID: 396137725}
   - {fileID: 820402297}
   - {fileID: 632867148}
-  - {fileID: 347181976}

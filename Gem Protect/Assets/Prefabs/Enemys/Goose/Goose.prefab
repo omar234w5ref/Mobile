@@ -108,6 +108,8 @@ MonoBehaviour:
   ShootingProjektile: {fileID: 4898989058897839391, guid: fce808ab05af5224f989571e23323ed9, type: 3}
   shootinTransform: {fileID: 3386575111328740770}
   shootinInterval: 1
+  sound1: {fileID: 8300000, guid: 3ef2e14fb2aabcf42a98104d9321d4ca, type: 3}
+  sound2: {fileID: 8300000, guid: f8f3e09727cf1214ab86665fd7f3fbeb, type: 3}
 --- !u!58 &3934430357913931600
 CircleCollider2D:
   m_ObjectHideFlags: 0

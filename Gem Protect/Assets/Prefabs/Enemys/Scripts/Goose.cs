@@ -18,11 +18,16 @@ public class Goose : MonoBehaviour
     private float shootingTime;
     private Vector3 direction;
     private SpriteRenderer spriteRenderer;
+    private Animator anim;
 
-
+    private AudioSource audioSource;
+    public AudioClip sound1;
+    public AudioClip sound2;
 
     void Start()
     {
+        audioSource = FindObjectOfType<AudioSource>();
+        anim = GetComponent<Animator>();
         Gem = GameObject.FindGameObjectWithTag("Gem");
         player = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -45,10 +50,22 @@ public class Goose : MonoBehaviour
             if (shootingTime >= shootinInterval)
             {
                 shootingTime = 0;
+                PlaySound();
                 GameObject shootingObject = Instantiate(ShootingProjektile, shootinTransform.transform.position, Quaternion.identity);
                 shootingObject.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             }
         }
+    }
+
+    public void PlaySound()
+    {
+        if (sound1 != null)
+        {
+            AudioClip pickedClip = Random.Range(0, 2) == 0 ? sound1 : sound2;
+        audioSource.clip = pickedClip;
+        audioSource.Play();    
+        }
+        
     }
 
     public void RotateSprite()
@@ -57,7 +74,8 @@ public class Goose : MonoBehaviour
         {
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (direction.x > 0)
+
+        if (direction.x > 0)
         {
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
         }

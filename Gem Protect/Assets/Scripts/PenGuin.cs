@@ -10,6 +10,7 @@ public class PenGuin : MonoBehaviour
     [SerializeField] private float speed;
     private bool isSpawningEnemys = false;
     
+
     public GameObject smallEnemy;
     private float origspeed;
 
