@@ -18,7 +18,7 @@ MonoBehaviour:
   spawnProbability: 0.1
   cost: 0
   gunLevel: 2
-  itemSprite: {fileID: -1484221643, guid: bccf08e66f3ad67468823d781d17b3f9, type: 3}
+  itemSprite: {fileID: -1484221643, guid: 3d7b1974103a1cc4ba4758565dc3bd77, type: 3}
   gunPrefab: {fileID: 8881284568191896346, guid: 5ffec9d1a52f28c46ab09b11e049812b, type: 3}
   damage: 125
   shootingIntervel: 2

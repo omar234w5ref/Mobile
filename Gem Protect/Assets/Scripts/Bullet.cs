@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
             damage = shopSlot.damage;
 
 
-
+        Destroy(this.gameObject, 5);
     }
     
     

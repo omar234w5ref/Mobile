@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     public List<GameObject> weapons;
     public GameObject crossHair;
-
+    public bool stunned;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         // UpdateWeaponsList();
 
 
-        if (joystick != null)
+        if (joystick != null && stunned == false)
         {
             float horizontal = joystick.Horizontal;
             float vertical = joystick.Vertical;

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8955c7ef5f38b7041b48cd1ff7da7e54, type: 3}
-  m_Name: SniperLvl.3
+  m_Name: Bazooka level1
   m_EditorClassIdentifier: 
-  Name: Sniper
+  Name: Rpg
   itemType: 0
   slotPrefab: {fileID: 6867391220200030839, guid: b347612ccb51e744196f60679a65f56a, type: 3}
-  spawnProbability: 0.05
+  spawnProbability: 0.01
   cost: 0
-  gunLevel: 3
-  itemSprite: {fileID: -1484221643, guid: 3d7b1974103a1cc4ba4758565dc3bd77, type: 3}
-  gunPrefab: {fileID: 8881284568191896346, guid: 5ffec9d1a52f28c46ab09b11e049812b, type: 3}
-  damage: 150
-  shootingIntervel: 1
+  gunLevel: 1
+  itemSprite: {fileID: -1348915428, guid: 3e2573db33d380c4ab6175a7fbc0ae46, type: 3}
+  gunPrefab: {fileID: 2839494275480875391, guid: 171e1d0d889c70740a7efb22f1115ee9, type: 3}
+  damage: 250
+  shootingIntervel: 3
   specialItemDescription: 

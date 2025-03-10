@@ -16,6 +16,13 @@ public class GemHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
+    private void Update()
+    {
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
     void UpdateHealthBar()
     {
         HealthBar.fillAmount = (float)currentHealth / maxHealth;

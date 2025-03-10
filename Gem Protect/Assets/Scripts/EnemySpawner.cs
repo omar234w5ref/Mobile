@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +14,6 @@ public class EnemyType
 public class Wave
 {
     public int coins;
-    public float enemySpeed;
     public float spawnInterval;
     public List<EnemyType> enemyTypes; // Specific enemies for this wave
 }
@@ -47,6 +46,12 @@ public class WaveParent
 
 public class EnemySpawner : MonoBehaviour
 {
+
+    public bool shopOpened = false; // ✅ Ensures shop opens only once per wave
+    public bool isMainShopUnlocked = false; // ✅ Unlocks the main shop after the player buys from the first shop
+    private bool canOpenShop = false; // ✅ Allows the shop to open when the wave ends
+
+
     public WaveParent waveParent = new WaveParent();
     public float waveInterval = 5.0f; // Time between waves in seconds
     public Transform[] spawnPoints;
@@ -102,19 +107,49 @@ public class EnemySpawner : MonoBehaviour
         {
             // Ensure the gem restores health when the wave is inactive
             GemHealth gemHealth = gem.GetComponent<GemHealth>();
-            if (gemHealth.currentHealth != gemHealth.maxHealth)
-            {
-                gemHealth.currentHealth = gemHealth.maxHealth;
-            }
+            gemHealth.AddHealth(100);
 
             waveTimer += Time.deltaTime;
 
-            if (waveTimer >= waveInterval && currentWaveIndex < waveParent.phases[currentPhaseIndex].waves.Count - 1 && AllEnemiesDead() && gameStarted)
+            // ✅ Set `canOpenShop = true` when wave ends, but only if the main shop is unlocked
+            if (waveTimer >= waveInterval && AllEnemiesDead() && gameStarted && !shopOpened)
             {
+                shopOpened = true; // ✅ Prevents shop from triggering multiple times
+                canOpenShop = true; // ✅ Allows the shop to open, but only if unlocked
+
+                // ✅ Only open the shop if `isMainShopUnlocked` is `true`
+                if (isMainShopUnlocked)
+                {
+                    Shop shop = FindObjectOfType<Shop>();
+                    if (shop != null)
+                    {
+                        shop.OpenShop();
+                    }
+                }
+
                 nextWaveButton.SetActive(true);
             }
         }
     }
+
+
+
+    public void LoadNextWave()
+    {
+        currentWaveIndex++;
+        if (currentWaveIndex >= waveParent.phases[currentPhaseIndex].waves.Count)
+        {
+            currentWaveIndex = 0;
+            currentPhaseIndex++;
+        }
+
+        currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
+        isWaveActive = true;
+        shopOpened = false; // ✅ Reset shopOpened so shop can open after the next wave
+        canOpenShop = false; // ✅ Prevents shop from opening mid-wave
+        waveText.text = " Wave: " + (currentWaveIndex + 1);
+    }
+
 
 
     void SpawnEnemy()
@@ -180,20 +215,11 @@ public class EnemySpawner : MonoBehaviour
         return null;
     }
 
-    public void LoadNextWave()
-    {
-        currentWaveIndex++;
-        if (currentWaveIndex >= waveParent.phases[currentPhaseIndex].waves.Count)
-        {
-            currentWaveIndex = 0;
-            currentPhaseIndex++;
-        }
-        
-        currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
-        isWaveActive = true;
-        waveText.text = " Wave: " + (currentWaveIndex + 1);
-    }
 
+    public void UnlockMainShop()
+    {
+        isMainShopUnlocked = true;
+    }
     public void GameStart()
     {
         gameStarted = true;

@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public Joystick joystick;
     private SpriteRenderer spriteRenderer;
     private Animator anim;
+
+    public bool stunned = false;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -16,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (joystick != null)
+        if (joystick != null && stunned == false)
         {
             float horizontal = joystick.Horizontal;
             float vertical = joystick.Vertical;

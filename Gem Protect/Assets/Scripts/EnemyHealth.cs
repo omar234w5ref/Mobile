@@ -55,8 +55,8 @@ public ParticleSystem hitPartickle;
         if (particklespawned == false)
         {
             particklespawned = true;
-            Instantiate(DeathPartickle, transform.position, quaternion.identity);
-
+            ParticleSystem dead =Instantiate(DeathPartickle, transform.position, quaternion.identity);
+            Destroy(dead, 4f);
         }
         FindObjectOfType<AudioManager>().Play("EnemyDeath");
        

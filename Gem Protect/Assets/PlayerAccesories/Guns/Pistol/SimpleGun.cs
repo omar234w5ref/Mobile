@@ -55,7 +55,7 @@ public class SimpleGun : Weapon
 
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             Destroy(bullet, 5);
         }
