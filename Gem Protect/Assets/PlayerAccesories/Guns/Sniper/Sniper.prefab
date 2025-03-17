@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d70d2ac19462db49b7bb4c53c84e09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopSlot: {fileID: 11400000, guid: d40e0757442938645be981a9e5843b86, type: 2}
+  shopSlot: {fileID: 11400000, guid: db67c8cf64038884d85a939ebfd0b318, type: 2}
   bulletSpawnPoint: {fileID: 6116392386557703679}
   bulletSpeed: 30
   bulletPrefab: {fileID: 3584303235711180002, guid: 183c8ef3a862bd849b231bbc2c929bfa, type: 3}

@@ -167,6 +167,7 @@ MonoBehaviour:
   shopSlot: {fileID: 11400000, guid: 4700f628a2869a740b70852a8647cceb, type: 2}
   oldCircleCollider2D: {fileID: 8966691212604914931}
   newcircleCollider2D: {fileID: -4512824434131502000}
+  damageRange: {fileID: 5514089291790496296, guid: 8d6d83b619e3a374692d7d1e79ed9a85, type: 3}
 --- !u!58 &-4512824434131502000
 CircleCollider2D:
   m_ObjectHideFlags: 0

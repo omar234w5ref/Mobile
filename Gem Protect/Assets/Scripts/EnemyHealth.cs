@@ -6,16 +6,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public enum enemyType
-{
-    goose,Miner,PenGuin,other
-};
+
 public class EnemyHealth : MonoBehaviour
 {
+    public string EnemyHitSfx;
+    public string EnemyDeathSfx;
     public GameObject CoinsPrefab;
     public ParticleSystem DeathPartickle;
 public ParticleSystem hitPartickle;
-    public enemyType enemyType;
     public int maxHealth = 100;
     public int scoreGive = 5;
     [SerializeField] private int currentHealth;
@@ -58,7 +56,7 @@ public ParticleSystem hitPartickle;
             ParticleSystem dead =Instantiate(DeathPartickle, transform.position, quaternion.identity);
             Destroy(dead, 4f);
         }
-        FindObjectOfType<AudioManager>().Play("EnemyDeath");
+        FindObjectOfType<AudioManager>().Play(EnemyDeathSfx);
        
         //Power Ups
         bool spawned = false;
@@ -92,7 +90,7 @@ public ParticleSystem hitPartickle;
             Destroy(other.gameObject);
             float damageAmount = other.GetComponent<Bullet>().damage;
             TakeHealth((int)damageAmount);
-            FindObjectOfType<AudioManager>().Play("EnemyHit");
+            FindObjectOfType<AudioManager>().Play(EnemyHitSfx);
         }
     }
  

@@ -69,11 +69,12 @@ public class Slot : MonoBehaviour
             return;
         }
 
-
         isBought = true; // Mark as bought immediately to prevent double purchases
         FindAnyObjectByType<AudioManager>().Play("BuySfx");
         if (shopSlot.itemType == ItemType.Gun)
         {
+            shop.ShowBoughtItems();
+
             string baseGunName = shop.GetBaseGunName(shopSlot.Name);
             ShopSlot oldGun = playerStats.boughtGuns.FirstOrDefault(gun => shop.GetBaseGunName(gun.Name) == baseGunName);
             if (oldGun != null)
@@ -85,6 +86,7 @@ public class Slot : MonoBehaviour
             // Add new gun to PlayerStats
             playerStats.TakeCoins((int)shopSlot.cost);
             playerStats.AddBoughtGun(shopSlot);
+            shop.ShowBoughtItems();
 
             // Equip the new gun
             gunHolder.EquipGun(shopSlot);
@@ -94,22 +96,17 @@ public class Slot : MonoBehaviour
             if (playerAttack != null)
             {
                 playerAttack.UpdateWeaponsList(); // Refresh the weapon list
+                shop.ShowBoughtItems();
             }
         }
 
-        if (shopSlot.itemType == ItemType.GemPowerUp) { 
-        
-            Gem.powerUpSlots.Add(shopSlot);
-        }
-
-        if(shopSlot.itemType == ItemType.PlayerPowerUp)
+        if (shopSlot.itemType == ItemType.PlayerPowerUp)
         {
             playerPowerUps.powerUpSlots.Add(shopSlot);
         }
 
         // Disable button to prevent multiple clicks
         GetComponent<Button>().interactable = false;
-
     }
 
 

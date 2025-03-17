@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1975975473, guid: 0ae63b4c020f8274598d70ad2288f399, type: 3}
+  m_Sprite: {fileID: -1827278188, guid: 301dac11760184b42bde94b1acd0014a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,10 +147,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1459532684700957054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,10 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1031c93358a800418c3bdbe10ebc4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHitSfx: EnemyHit
+  EnemyDeathSfx: EnemyDeath
   CoinsPrefab: {fileID: 7318549857657408597, guid: 11cd456f7aad6b6419194c6328a02530, type: 3}
   DeathPartickle: {fileID: 2959517300220103211, guid: 5890c0a836da0bd4e966204d829803eb, type: 3}
-  hitPartickle: {fileID: 0}
-  enemyType: 1
+  hitPartickle: {fileID: 1539631933223290393, guid: 02ab86ce0b7b9c8429cdede3d364399c, type: 3}
   maxHealth: 50
   scoreGive: 10
   currentHealth: 0

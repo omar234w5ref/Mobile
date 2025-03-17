@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fceab6f2697a74c99a316e1bcfbc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopSlot: {fileID: 0}
+  shopSlot: {fileID: 11400000, guid: 4c57d567be9fbce4094b3c7771868827, type: 2}
   damage: 0

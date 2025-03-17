@@ -18,21 +18,21 @@ public class Snake : MonoBehaviour
     private float timeToStartShootin;
     private float _elapsidTime;
     private float elapsedTime;
-    private GameObject Gem;
+    private GameObject player;
     private Vector2 direction;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Gem = GameObject.FindGameObjectWithTag("Gem");
+        player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         timeToStartShootin = Random.Range(1, 2);
     }
 
     void Update()
     {
-        direction = (Gem.transform.position - transform.position).normalized;
+        direction = (player.transform.position - transform.position).normalized;
 
         if (!isShooting && !isSelecting)
         {

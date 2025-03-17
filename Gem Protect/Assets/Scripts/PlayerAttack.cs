@@ -84,15 +84,15 @@ public class PlayerAttack : MonoBehaviour
 
 
     // Call this when your weapons change (e.g., when a new weapon is equipped).
-   public void UpdateWeaponsList()
-{
-    Debug.Log("Update Weapon List");
-
-    weapons = new List<GameObject>();
-
-    foreach (Weapon weapon in gunHolder.GetComponentsInChildren<Weapon>())
+    public void UpdateWeaponsList()
     {
-        weapons.Add(weapon.gameObject);
+        Debug.Log("Update Weapon List");
+
+        weapons = new List<GameObject>();
+
+        foreach (Weapon weapon in gunHolder.GetComponentsInChildren<Weapon>())
+        {
+            weapons.Add(weapon.gameObject);
+        }
     }
-}
 }

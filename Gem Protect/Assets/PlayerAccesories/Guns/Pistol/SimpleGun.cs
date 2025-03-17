@@ -13,6 +13,12 @@ public class SimpleGun : Weapon
     [SerializeField] private float camShakeIntensity;
     [SerializeField] private float camShakeLength;
 
+
+
+    [Header("Settings")]
+    public bool bulletSpread;
+    public float bulletSpreadAngle;
+    public float bulletAmount;
     //----------------------------
     CameraFollow cam;
     AudioManager audioManager;
@@ -27,6 +33,15 @@ public class SimpleGun : Weapon
 
     void Update()
     {
+        Bullet bullet = bulletPrefab.GetComponent<Bullet>();
+
+        if(bullet != null)
+
+            bulletPrefab.GetComponent<Bullet>().shopSlot = shopSlot;
+
+        if(bullet == null){
+            bulletPrefab.GetComponent<BazookaBullet>().shopSlot = shopSlot;
+        }
 
     }
 

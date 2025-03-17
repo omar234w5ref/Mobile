@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - Shield
+  - Border
   layers:
   - Default
   - TransparentFX

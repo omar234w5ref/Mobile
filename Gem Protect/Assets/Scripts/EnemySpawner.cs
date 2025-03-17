@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -46,14 +47,12 @@ public class WaveParent
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    public bool shopOpened = false; // ✅ Ensures shop opens only once per wave
-    public bool isMainShopUnlocked = false; // ✅ Unlocks the main shop after the player buys from the first shop
-    private bool canOpenShop = false; // ✅ Allows the shop to open when the wave ends
-
+    public bool shopOpened = false;
+    public bool isMainShopUnlocked = false;
+    private bool canOpenShop = false;
 
     public WaveParent waveParent = new WaveParent();
-    public float waveInterval = 5.0f; // Time between waves in seconds
+    public float waveInterval = 5.0f;
     public Transform[] spawnPoints;
     public TextMeshProUGUI waveText;
     public float minDistanceFromGem = 5.0f;
@@ -64,36 +63,43 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveIndex = 0;
     private int currentCoins;
     public bool isWaveActive = false;
-    private GameObject gem;
+    private GameObject player;
     private List<GameObject> activeEnemies = new List<GameObject>();
 
     [Header("Shop")]
     public GameObject Shop;
     public GameObject nextWaveButton;
 
+    [Header("Spawn Indicator")]
+    public GameObject spawnIndicatorPrefab; // ✅ Drag and drop your indicator prefab here
+    public float indicatorDuration = 1.5f; // ✅ Time before enemy spawns after indicator appears
 
-    bool gameStarted= false;
+    bool gameStarted = false;
+
     void Start()
     {
-        gem = GameObject.Find("Gem");
+        player = GameObject.Find("Player");
 
         if (waveParent.phases.Count > 0 && waveParent.phases[0].waves.Count > 0)
         {
             currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
-            waveText.text =  " Wave: " + (currentWaveIndex + 1);
+            waveText.text = " Wave: " + (currentWaveIndex +1);
         }
     }
 
     void Update()
     {
-        if (isWaveActive)
+        if (isWaveActive && gameStarted)
         {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            playerHealth.waveOver = false;
+
             nextWaveButton.SetActive(false);
             timer += Time.deltaTime;
 
             if (timer >= waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].spawnInterval && currentCoins > 0)
             {
-                SpawnEnemy();
+                StartCoroutine(ShowSpawnIndicator()); // ✅ Show spawn indicator before spawning
                 timer = 0.0f;
             }
 
@@ -103,26 +109,24 @@ public class EnemySpawner : MonoBehaviour
                 waveTimer = 0.0f;
             }
         }
-        else
+        else if(!isWaveActive)
         {
-            // Ensure the gem restores health when the wave is inactive
-            GemHealth gemHealth = gem.GetComponent<GemHealth>();
-            gemHealth.AddHealth(100);
-
             waveTimer += Time.deltaTime;
 
-            // ✅ Set `canOpenShop = true` when wave ends, but only if the main shop is unlocked
             if (waveTimer >= waveInterval && AllEnemiesDead() && gameStarted && !shopOpened)
             {
-                shopOpened = true; // ✅ Prevents shop from triggering multiple times
-                canOpenShop = true; // ✅ Allows the shop to open, but only if unlocked
+                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+                playerHealth.waveOver = true;
 
-                // ✅ Only open the shop if `isMainShopUnlocked` is `true`
+                shopOpened = true;
+                canOpenShop = true;
+
                 if (isMainShopUnlocked)
                 {
                     Shop shop = FindObjectOfType<Shop>();
                     if (shop != null)
                     {
+                        Debug.Log("🛒 Main Shop Opened");
                         shop.OpenShop();
                     }
                 }
@@ -131,8 +135,6 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
-
 
     public void LoadNextWave()
     {
@@ -145,25 +147,33 @@ public class EnemySpawner : MonoBehaviour
 
         currentCoins = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].coins;
         isWaveActive = true;
-        shopOpened = false; // ✅ Reset shopOpened so shop can open after the next wave
-        canOpenShop = false; // ✅ Prevents shop from opening mid-wave
+        shopOpened = false;
+        canOpenShop = false;
         waveText.text = " Wave: " + (currentWaveIndex + 1);
     }
 
+    IEnumerator ShowSpawnIndicator()
+    {
+        Transform spawnPoint = GetValidSpawnPoint();
+        if (spawnPoint == null) yield break;
 
+        GameObject indicator = Instantiate(spawnIndicatorPrefab, spawnPoint.position, Quaternion.identity);
+        indicator.SetActive(true);
 
-    void SpawnEnemy()
+        yield return new WaitForSeconds(indicatorDuration); // ✅ Wait before spawning
+
+        Destroy(indicator);
+        SpawnEnemy(spawnPoint);
+    }
+
+    void SpawnEnemy(Transform spawnPoint)
     {
         EnemyType selectedEnemy = SelectEnemyType();
         if (selectedEnemy != null && currentCoins >= selectedEnemy.cost)
         {
-            Transform spawnPoint = GetValidSpawnPoint();
-            if (spawnPoint != null)
-            {
-                GameObject enemy = Instantiate(selectedEnemy.enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                activeEnemies.Add(enemy);
-                currentCoins -= selectedEnemy.cost;
-            }
+            GameObject enemy = Instantiate(selectedEnemy.enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            activeEnemies.Add(enemy);
+            currentCoins -= selectedEnemy.cost;
         }
     }
 
@@ -173,7 +183,7 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (Transform spawnPoint in spawnPoints)
         {
-            if (Vector3.Distance(spawnPoint.position, gem.transform.position) >= minDistanceFromGem)
+            if (Vector3.Distance(spawnPoint.position, player.transform.position) >= minDistanceFromGem)
             {
                 validSpawnPoints.Add(spawnPoint);
             }
@@ -191,7 +201,7 @@ public class EnemySpawner : MonoBehaviour
     EnemyType SelectEnemyType()
     {
         List<EnemyType> currentWaveEnemies = waveParent.phases[currentPhaseIndex].waves[currentWaveIndex].enemyTypes;
-        
+
         if (currentWaveEnemies == null || currentWaveEnemies.Count == 0) return null;
 
         float totalProbability = 0f;
@@ -215,14 +225,15 @@ public class EnemySpawner : MonoBehaviour
         return null;
     }
 
-
     public void UnlockMainShop()
     {
         isMainShopUnlocked = true;
     }
+
     public void GameStart()
     {
         gameStarted = true;
+        isWaveActive = true;
     }
 
     bool AllEnemiesDead()

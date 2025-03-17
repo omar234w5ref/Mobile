@@ -10,6 +10,8 @@ public class GemHealth : MonoBehaviour
     public int currentHealth;
     [SerializeField] private GameObject deathPanel;
     public GameObject[] afterDeathStop;
+
+    public bool waveOver;
     void Awake()
     {
         currentHealth = maxHealth;
@@ -18,10 +20,19 @@ public class GemHealth : MonoBehaviour
 
     private void Update()
     {
-        if(currentHealth > maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+
+        if (waveOver == true)
+        {
+            if (currentHealth != maxHealth)
+            {
+                 AddHealth(maxHealth);
+            }
+        }
+
     }
     void UpdateHealthBar()
     {

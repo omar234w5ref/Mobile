@@ -11,16 +11,15 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     void Start()
     {
-        player = GameObject.Find("Player");
-        Gem = GameObject.Find("Gem");
+        player = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        Vector3 direction = Gem.transform.position - transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, Gem.transform.position, speed * Time.deltaTime);
+        Vector3 direction = player.transform.position - transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         if (anim != null)
             anim.SetBool("Walking", true);
         // Flip the sprite based on the direction of movement
@@ -30,9 +29,9 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Gem")
+        if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<GemHealth>().TakeHealth(10);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeHealth(10);
             Destroy(this.gameObject);
         }
     }

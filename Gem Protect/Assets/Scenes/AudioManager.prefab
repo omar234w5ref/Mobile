@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3156482793647581443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4875590325616402391}
+  - component: {fileID: 7999571842590096359}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4875590325616402391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156482793647581443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3698174, y: 2.4923937, z: 0.052557774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7999571842590096359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156482793647581443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9aa328477b5694780f2f70e2710308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PistolShot
+    clip: {fileID: 8300000, guid: 52b8787eacd090e428c32fee04ac7311, type: 3}
+    volume: 0.5
+    pitch: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: CoinPickUp
+    clip: {fileID: 8300000, guid: f44942f3b444ed04a92254cfb34e7f91, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinerEnemyDeath
+    clip: {fileID: 8300000, guid: 729ac42e21344b64a8a76ccae5abe69c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: d7f7053d2620b3344bae2cbdf2ca8970, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: mashineGunShot
+    clip: {fileID: 8300000, guid: 4821b4380ab7d1e46a0d3abde23e73ba, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BuySfx
+    clip: {fileID: 8300000, guid: 6803dbc207ea9c14489edaa872a65306, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RevolverShoot
+    clip: {fileID: 8300000, guid: 35388c74bf28aa7489742f4f5feff465, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SniperShoot
+    clip: {fileID: 8300000, guid: 42aeef20c2fdc13429c54506b8783e46, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 66ccfe5d29a8d8743b8adf5cc78e4717, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RPGHit
+    clip: {fileID: 8300000, guid: fdfe796eb8e7269489929d692569c54b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RPGShoot
+    clip: {fileID: 8300000, guid: 8f32387b2f9b7374b890a5aceafd678b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MushroomHit
+    clip: {fileID: 8300000, guid: 07b920466bba79c48a2d29bfe659e411, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MushroomDeath
+    clip: {fileID: 8300000, guid: 9ae96366cfbf81a4cae0f7cd01d25949, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BiggerMushroomDeath
+    clip: {fileID: 8300000, guid: 614a85aee42ea9d428cf4c1089e62044, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BiggerMushroomHit
+    clip: {fileID: 8300000, guid: 079774193b23ba2429c8d58576d02493, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: ce4fb174a75b6d64c84e286496d2cf23, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHitSfx
+    clip: {fileID: 8300000, guid: 6afc45e8d3d8e9743b76df3cd7b878a7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HeavyMashineGunShoot
+    clip: {fileID: 8300000, guid: 758e6374c4967d34b8dd0063c39dc80c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -16,7 +16,7 @@ public class PenGuin : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Gem");
+        target = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         StartCoroutine(SpawnEnemiesRandomly());
         origspeed = speed;

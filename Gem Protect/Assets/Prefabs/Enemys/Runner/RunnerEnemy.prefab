@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da94bf21c015e5040a6cb61bcb8a7a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   CoinsPrefab: {fileID: 0}
 --- !u!114 &3565449979668466329
 MonoBehaviour:
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1031c93358a800418c3bdbe10ebc4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHitSfx: EnemyHit
+  EnemyDeathSfx: EnemyDeath
   CoinsPrefab: {fileID: 7318549857657408597, guid: 11cd456f7aad6b6419194c6328a02530, type: 3}
   DeathPartickle: {fileID: 2959517300220103211, guid: 5890c0a836da0bd4e966204d829803eb, type: 3}
   hitPartickle: {fileID: 1539631933223290393, guid: 02ab86ce0b7b9c8429cdede3d364399c, type: 3}

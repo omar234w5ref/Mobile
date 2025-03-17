@@ -16,7 +16,7 @@ public class Shop : MonoBehaviour
     private EnemySpawner enemySpawner;
     public bool panelClose;
     private Dictionary<string, int> playerGunLevels = new Dictionary<string, int>(); // Tracks highest level owned per gun base name
-
+    private bool normalShop = false;
     void Start()
     {
         enemySpawner = FindObjectOfType<EnemySpawner>();
@@ -29,15 +29,9 @@ public class Shop : MonoBehaviour
         // 🔥 Ensure we recognize any guns given at the start of the game!
         RefreshPlayerGunLevels();
 
+    }
+
     
-        OpenShop();
-
-    }
-
-    private void Update()
-    {
-        ShowBoughtItems();
-    }
 
     public void OpenShop()
     {
@@ -51,7 +45,11 @@ public class Shop : MonoBehaviour
         SpawnShopSlots();
 
         // ✅ Make sure the shop panel is visible
+       
+        
         ShopPanel.SetActive(true);
+
+        
 
         Debug.Log("🛒 Shop Opened: Slots Refreshed");
     }
@@ -63,6 +61,8 @@ public class Shop : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        FindAnyObjectByType<AudioManager>().Play("ButtonClick");
     }
 
     public void CloseShop()
@@ -160,6 +160,7 @@ public class Shop : MonoBehaviour
         // Remove the old gun (if one exists)
         if (playerGunLevels.ContainsKey(baseGunName))
         {
+            Debug.Log($"Removing old gun with base name: {baseGunName}");
             RemoveOldGun(baseGunName);
         }
 
@@ -175,6 +176,18 @@ public class Shop : MonoBehaviour
 
         // 🔄 Refresh gun levels so shop correctly updates
         RefreshPlayerGunLevels();
+
+        // Show bought items in the shop
+        ShowBoughtItems();
+
+        // Equip the new gun
+        FindObjectOfType<GunHolder>().EquipGun(newGun);
+
+        // Ensure weapons list in PlayerAttack is updated
+        playerAttack.UpdateWeaponsList();
+
+        // Play sound effect
+        FindAnyObjectByType<AudioManager>().Play("BuySfx");
     }
 
     private void RemoveOldGun(string baseGunName)
@@ -187,8 +200,13 @@ public class Shop : MonoBehaviour
 
         if (oldGunObject != null)
         {
+            Debug.Log($"Removing old gun: {oldGunObject.name}");
             playerAttack.weapons.Remove(oldGunObject);
             Destroy(oldGunObject);
+        }
+        else
+        {
+            Debug.Log($"No old gun found with base name: {baseGunName}");
         }
 
         // Also remove from PlayerStats
@@ -214,11 +232,27 @@ public class Shop : MonoBehaviour
             if (slotIndex >= inventoryGunSlot.Length)
                 break;
 
+
+            
             Image inventorySlotImage = inventoryGunSlot[slotIndex].GetComponent<Image>();
+
+
             inventorySlotImage.enabled = true;
             inventorySlotImage.sprite = boughtGun.itemSprite;
             inventorySlotImage.SetNativeSize();
+            InventorySlot inventorySlot = inventoryGunSlot[slotIndex].GetComponentInParent<InventorySlot>();
+            inventorySlot.shopslot = boughtGun;
             slotIndex++;
+
+
+
+
+
+
         }
     }
+
+    
+        
+    
 }

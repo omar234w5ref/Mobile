@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8799308747794973720}
   - component: {fileID: 149937926809216015}
   - component: {fileID: 2771134305084589828}
-  - component: {fileID: 3934430357913931600}
   - component: {fileID: 7840375773627960173}
   - component: {fileID: 2733845568162863726}
   - component: {fileID: 3118367435369682257}
+  - component: {fileID: 7729385012163058900}
   m_Layer: 0
   m_Name: Goose
   m_TagString: Enemy
@@ -105,46 +105,10 @@ MonoBehaviour:
   speed: 4
   minDist: 4
   bulletSpeed: 5
+  player: {fileID: 0}
   ShootingProjektile: {fileID: 4898989058897839391, guid: fce808ab05af5224f989571e23323ed9, type: 3}
   shootinTransform: {fileID: 3386575111328740770}
   shootinInterval: 1
-  sound1: {fileID: 8300000, guid: 3ef2e14fb2aabcf42a98104d9321d4ca, type: 3}
-  sound2: {fileID: 8300000, guid: f8f3e09727cf1214ab86665fd7f3fbeb, type: 3}
---- !u!58 &3934430357913931600
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714053164364269075}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &7840375773627960173
 Rigidbody2D:
   serializedVersion: 4
@@ -205,6 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1031c93358a800418c3bdbe10ebc4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHitSfx: EnemyHit
+  EnemyDeathSfx: EnemyDeath
   CoinsPrefab: {fileID: 7318549857657408597, guid: 11cd456f7aad6b6419194c6328a02530, type: 3}
   DeathPartickle: {fileID: 2959517300220103211, guid: 5890c0a836da0bd4e966204d829803eb, type: 3}
   hitPartickle: {fileID: 1539631933223290393, guid: 02ab86ce0b7b9c8429cdede3d364399c, type: 3}
@@ -214,6 +180,51 @@ MonoBehaviour:
   currentHealth: 0
   powerUps: []
   powerUpSpawnProbabelity: 0.01
+--- !u!61 &7729385012163058900
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714053164364269075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.48, y: 0.92}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.92}
+  m_EdgeRadius: 0
 --- !u!1 &3386575111328740770
 GameObject:
   m_ObjectHideFlags: 0

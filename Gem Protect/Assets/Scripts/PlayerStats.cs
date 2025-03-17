@@ -68,7 +68,12 @@ public class PlayerStats : MonoBehaviour
         boughtGuns.Add(gunSlot);
     }
 
-   
+    public void RemoveBoughtGun(ShopSlot gunSlot)
+    {
+        boughtGuns.Remove(gunSlot);
+    }
 
-   
+
+
+
 }

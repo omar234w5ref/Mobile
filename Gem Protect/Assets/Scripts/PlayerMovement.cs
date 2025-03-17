@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator anim;
 
+    public GameObject[] stunnImages;
+
     public bool stunned = false;
     void Start()
     {
@@ -42,6 +44,22 @@ public class PlayerMovement : MonoBehaviour
 
             spriteRenderer.flipX = horizontal < 0;
            
+        }
+
+
+        if(stunned)
+        {
+            foreach (GameObject stunnImage in stunnImages)
+            {
+                stunnImage.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject stunnImage in stunnImages)
+            {
+                stunnImage.SetActive(false);
+            }
         }
     }
 
